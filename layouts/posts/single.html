@@ -102,6 +102,11 @@
       </div>
     {{- end }}
 
+    {{ if .Site.DisqusShortname }}
+      <hr />
+      {{ partial "comments.html" . }}
+    {{- end }}
+
     {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
       <div class="pagination">
         <div class="pagination__title">
@@ -129,15 +134,6 @@
           {{ end }}
         </div>
       </div>
-    {{ end }}
-
-
-    {{ if .Site.DisqusShortname }}
-      {{ if not (eq .Params.Comments "false") }}
-        <div id="comments">
-          {{ template "_internal/disqus.html" . }}
-        </div>
-      {{ end }}
     {{ end }}
 
   </main>
