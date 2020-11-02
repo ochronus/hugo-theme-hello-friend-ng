@@ -102,6 +102,10 @@
       </div>
     {{- end }}
 
+    {{- if .Site.Params.ConvertKitSubscribeForm }}
+      <script async data-uid="{{ .Site.Params.ConvertKitSubscribeForm.id }}" src="{{ .Site.Params.ConvertKitSubscribeForm.url }}"></script>
+    {{- end }}
+
     {{ if .Site.DisqusShortname }}
       <hr />
       {{ partial "comments.html" . }}
